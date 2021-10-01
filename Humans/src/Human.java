@@ -1,7 +1,9 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Human {
+public class Human implements Comparable<Human> {
+	
+	public final Comparable<Human> AGE_ORDER = new Comparator<Human>();
 	
 	int birthYear;
 	int birthMonth;
@@ -50,6 +52,12 @@ public class Human {
 		LocalDate dateOfBirth = LocalDate.of(birthYear, birthMonth, birthDay);
 		long years = ChronoUnit.YEARS.between(dateOfBirth, today);
 		return (int)years;
+	}
+	
+	@Override
+	public int compareTo(Human o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
