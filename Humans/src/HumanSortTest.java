@@ -1,10 +1,10 @@
+//2021/10/02
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
 import junit.framework.TestCase;
-//2020/03/09
 
 public class HumanSortTest extends TestCase {
 		
@@ -12,11 +12,8 @@ public class HumanSortTest extends TestCase {
 		int graduateBirthYear = LocalDateTime.now().getYear() - 18;
 		String schoolName = "William Aberhart High School";
 		Human[] humans = {				
-				new Adult(1934, 11, 7, "Folco", "Gaukrogers", Gender.MALE, schoolName, "Principal"),
-				
-				//WilliamAberhartStudent(int birthYear, int birthMonth, int birthDay, String firstName, String lastName, Gender gender, int schoolGrade, int homeRoom, String homeRoomTeacher)
+				new Adult(1934, 11, 7, "Folco", "Gaukrogers", Gender.MALE, schoolName, "Principal"),				
 				new WilliamAberhartStudent(graduateBirthYear, 6, 4, "Banazir", "Rumble", Gender.MALE, 12, 310, "Wehnes"),
-				
 				new Youth(graduateBirthYear, 11, 17, "Munderic", "Wanderfoot", Gender.MALE, 12, schoolName),
 				new Adult(1946, 4, 23, "Ceufroy", "Longbottom", Gender.MALE, schoolName, "Teacher"),
 				new Youth(1931, 8, 20, "Meginhard", "Chubb", Gender.MALE, 12, schoolName),
@@ -85,6 +82,11 @@ public class HumanSortTest extends TestCase {
 		assertEquals(true, nameOrder.compare(human1,human1) == 0);
 		assertEquals(true, nameOrder.compare(human2,human3) < 0);		
 		assertEquals(true, nameOrder.compare(human3,human2) > 0);				
+		
+		Human human4 = new Human(1965, 6, 1, "Zak", "Smith", Gender.MALE);
+		Human human5 = new Human(1965, 6, 1, "John", "Smith-Jones", Gender.MALE);
+		assertEquals(true, nameOrder.compare(human4,human5) < 0);				
+		
 	}
 
 	public void testSortByAge() {

@@ -85,10 +85,9 @@ public class Human implements Comparable<Human> {
 		}
 		
 		public int compareName(Human h2) {
-			return (firstName + las
+			return(lastName + firstName).compareTo(h2.lastName = h2.firstName);
 		}
 		public int compareAssembly(Human h2) {
-			int difference = h2.calculateCurrentAgeInDays() - calculateCurrentAgeInDays();
-			return difference;
+			
 		}
 }
