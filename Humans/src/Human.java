@@ -16,7 +16,7 @@ public class Human implements Comparable<Human> {
 	};
 	public static Comparator<Human> NAME_ORDER = new Comparator<Human>() {
 		public int compare(Human h1, Human h2) {
-			return h1.compareTo(h2);
+			return (h1.lastName.compareToIgnoreCase(h2.lastName) + h1.firstName.compareToIgnoreCase(h2.firstName));
 		}
 	};
 
@@ -84,9 +84,6 @@ public class Human implements Comparable<Human> {
 			return difference;
 		}
 		
-		public int compareName(Human h2) {
-			return(lastName + firstName).compareTo(h2.lastName = h2.firstName);
-		}
 		public int compareAssembly(Human h2) {
 			
 		}
