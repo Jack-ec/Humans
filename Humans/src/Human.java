@@ -13,12 +13,12 @@ public class Human implements Comparable<Human> {
 		public int compare(Human h1, Human h2) {
 			Integer humanOneOrdinal = humanOrdinal(h1);
 			Integer humanTwoOrdinal = humanOrdinal(h2);
-			return humanOneOrdinal.compareTo(humanTwoOrdinal);
+			return (humanOneOrdinal + (h1.getLastName() + "," + h1.getFirstName())).compareTo(humanTwoOrdinal + (h2.getLastName() + "," + h2.getFirstName()));
 		}
 	};
 	public static Comparator<Human> NAME_ORDER = new Comparator<Human>() {
 		public int compare(Human h1, Human h2) {
-			return (h1.lastName.compareToIgnoreCase(h2.lastName) + h1.firstName.compareToIgnoreCase(h2.firstName));
+			return (h1.getLastName() + "," + h1.getFirstName()).compareTo(h2.getLastName() + "," + h2.getFirstName());
 		}
 	};
 
@@ -104,7 +104,4 @@ public class Human implements Comparable<Human> {
 		return difference;
 	}
 
-	public int compareAssembly(Human h2) {
-
-	}
 }
